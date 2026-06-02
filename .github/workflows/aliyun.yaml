@@ -29,18 +29,11 @@ jobs:
         echo "=============================================================================="
 
     # 增加可用磁盘空间
-    - name: Maximize build space
-      uses: easimon/maximize-build-space@master
+    - name: Free Runner Space
+      uses: justinthelaw/maximize-github-runner-space@v0.9.0
       with:
-
-        root-reserve-mb: 2048
-        swap-size-mb: 128
-        remove-dotnet: 'true'
-        remove-haskell: 'true'
-        # 如果空间还是不够用，可以把以下开启，清理出更多空间
-        # remove-android: 'true'
-        # remove-codeql: 'true'
-        build-mount-path: '/var/lib/docker/'
+        skip-components: java,browsers,docker-engine
+        swapfile-size: 2G
 
     - name: Restart docker
       run: sudo service docker restart
@@ -53,7 +46,7 @@ jobs:
         echo "=============================================================================="
 
     - name: Checkout Code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6.0.2
 
     - name: Docker Setup Buildx
       uses: docker/setup-buildx-action@v3
