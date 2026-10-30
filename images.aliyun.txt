@@ -1,4 +1,4 @@
-vllm/vllm-openai:nightly-7d0b4e57aac4c4323225b0eee9ae960ce75ffffe
+lmsysorg/sglang:v0.5.23
 # 支持私库
 # k8s.gcr.io/kube-state-metrics/kube-state-metrics:v2.0.0
 # xhofe/alist:latest
